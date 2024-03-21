@@ -1,27 +1,27 @@
-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-class TargetHomePage:
+from selenium.webdriver.common.by import By
+url = "https://soft.reelly.io/"
+class BasePage:
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(self.driver, 15)
 
-    def open(self):
-        self.driver.get("https://www.target.com")
+    def open_url(self, url):
+        self.driver.get(url)
 
-    def click_sign_in_from_navigation(self):
-        sign_in_nav_locator = (By.XPATH, "//button[@data-test='account']")
-        self.wait.until(EC.element_to_be_clickable(sign_in_nav_locator)).click()
+    def find_element(self, by, locator):
+        return self.driver.find_element(by, locator)
 
-class TargetSignInPage:
-    def __init__(self, driver):
-        self.driver = driver
-        self.wait = WebDriverWait(self.driver, 15)
+    def click_element(self, by, locator):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((by, locator))
+        )
+        element.click()
 
-    def verify_sign_in_form_opened(self):
-        sign_in_form_locator = (By.XPATH, "//form[@data-test='signinForm']")
-        self.wait.until(EC.visibility_of_element_located(sign_in_form_locator))
+    def input_text(self, by, locator, text):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((by, locator))
+        )
+        element.send_keys(text)
+
 

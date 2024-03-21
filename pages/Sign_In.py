@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import  expected_conditions as EC
 
 
-class SignInPage(BasePage):
+class SignIn(BasePage):
     USERNAME_FIELD = (By.CSS_SELECTOR, '[placeholder="Email"]')
     PASSWORD_FIELD = (By.CSS_SELECTOR, '[wized="passwordInput"]')
     CONTINUE_BUTTON = (By.CSS_SELECTOR, '[wized="loginButton"]')
