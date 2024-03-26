@@ -39,3 +39,15 @@ def after_step(context, step):
 def after_scenario(context, feature):
     context.driver.delete_all_cookies()
     context.driver.quit()
+from pages.Base_page import BasePage
+
+def before_scenario(context, scenario):
+
+    context.driver = webdriver.Chrome()
+
+
+    context.base_page = BasePage(context.driver)
+
+def after_scenario(context, scenario):
+
+    pass

@@ -3,8 +3,8 @@ Feature: Test Scenarios for Reelly
 Scenario:  Verify each product contains the Out of Stocks tag.
 
     Given I navigate to: https://soft.reelly.io/sign-in
-    When I input username: ''
-    When I input password: ''
+    When I input username: 'Email'
+    When I input password: 'Password'
     When I click button: Continue
     When I click "off plan”button at the left side menu.
     Then I see URL contains text: off plan

@@ -5,8 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from behave import given, when, then
 
 
-
-
 @when('I click "off plan” button at the left side menu')
 def click_off_plan(context):
     off_plan_link = WebDriverWait(context.driver, 10).until(
